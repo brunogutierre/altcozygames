@@ -15,7 +15,7 @@
     // No not_found_handling: with "404-page", browser navigations that match no file get the
     // 404 page straight away and never reach the Worker (duel and daily links).
   },
-  "workers_dev": true
-  // Once altcozygames.com is in the Cloudflare account, attach it:
-  // "routes": [{ "pattern": "altcozygames.com", "custom_domain": true }]
+  "workers_dev": true,
+  // The domain is in this Cloudflare account: deploying creates its DNS record and certificate.
+  "routes": [{ "pattern": "altcozygames.com", "custom_domain": true }]
 }
