@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wyzwanie dnia · Advanced Sudoku</title>
+<meta name="description" content="Codziennie to samo sudoku dla wszystkich.">
+<link rel="canonical" href="https://altcozygames.com/pl/daily">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Advanced Sudoku">
+<meta property="og:title" content="Wyzwanie dnia · Advanced Sudoku">
+<meta property="og:description" content="Codziennie to samo sudoku dla wszystkich.">
+<meta property="og:url" content="https://altcozygames.com/pl/daily">
+<meta property="og:image" content="https://altcozygames.com/og/daily.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3ecdf" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211d19" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/icon.png">
+<link rel="preload" href="/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=9402c6bf">
+</head>
+<body>
+<main class="wrap">
+<section class="card">
+  <div class="app-id"><img src="/icon.png" alt="" width="52" height="52"><span class="wordmark"><small>Advanced</small> <span>Sudoku</span></span></div>
+  <h1 id="title">Wyzwanie dnia</h1>
+  <p class="intro" id="intro">Codziennie to samo sudoku dla wszystkich.</p>
+  <div class="actions">
+    <a class="button" id="open" hidden>Otwórz w aplikacji</a>
+    <a class="badge" id="install" href="https://play.google.com/store/apps/details?id=com.altcozygames.advancedsudoku&amp;referrer=utm_source%3Ddaily%26utm_medium%3Dlink"><img src="/badges/pl.png" alt="Pobierz z Google Play" height="64"></a>
+  </div>
+  <p class="note">Za darmo, bez reklam, bez konta.</p>
+</section>
+</main>
+<footer class="wrap site-footer"><span>Kontakt: <a href="mailto:altcozygames@gmail.com">altcozygames@gmail.com</a></span><a href="/">Stworzone przez Alt Cozy Games</a></footer>
+<script>
+const D = {"t":{"intro":"Znajomy zagrał w sudoku dnia z {{date}}. Każdego dnia wszyscy dostają to samo: zagraj też w dzisiejsze.","invalid":"Ten link jest niepełny. Dzisiejsze sudoku dnia czeka w aplikacji.","ogTitle":"{{title}} · {{date}}","ogDescription":"Codziennie to samo sudoku dla wszystkich.","title":"Wyzwanie dnia","open":"Otwórz w aplikacji"},"lang":"pl","play":"https://play.google.com/store/apps/details?id=com.altcozygames.advancedsudoku","pkg":"com.altcozygames.advancedsudoku"};
+const $ = (id) => document.getElementById(id);
+const raw = decodeURIComponent(location.pathname.split('/daily/')[1] || '').replace(/\/+$/, '');
+const valid = /^\d{4}-\d{2}-\d{2}$/.test(raw) && !Number.isNaN(Date.parse(raw + 'T00:00:00Z'));
+const fill = (text, values) => text.replace(/{{\s*(\w+)\s*}}/g, (_, k) => values[k] ?? '');
+let referrer = 'utm_source=daily&utm_medium=link';
+if (valid) {
+  const date = new Intl.DateTimeFormat(D.lang, { day: 'numeric', month: 'long', timeZone: 'UTC' }).format(new Date(raw + 'T00:00:00Z'));
+  $('title').textContent = fill(D.t.ogTitle, { title: D.t.title, date });
+  $('intro').textContent = fill(D.t.intro, { date });
+  referrer += '&daily=' + raw;
+} else if (raw) {
+  $('intro').textContent = D.t.invalid;
+}
+const play = D.play + '&referrer=' + encodeURIComponent(referrer);
+$('install').href = play;
+if (/Android/i.test(navigator.userAgent)) {
+  const open = $('open');
+  open.href = 'intent://open/daily#Intent;scheme=advsudoku;package=' + D.pkg + ';S.browser_fallback_url=' + encodeURIComponent(play) + ';end';
+  open.hidden = false;
+}
+</script>
+</body>
+</html>

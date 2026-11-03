@@ -1,0 +1,341 @@
+{
+  "origin": "https://altcozygames.com",
+  "langs": {
+    "en": {
+      "lang": "en",
+      "variant": {
+        "classic": "Classic",
+        "diagonal": "Diagonal",
+        "antiKnight": "Anti-Knight",
+        "killer": "Killer",
+        "evenOdd": "Even/Odd",
+        "hyper": "Hyper",
+        "consecutive": "Consecutive",
+        "jigsaw": "Jigsaw",
+        "thermo": "Thermo",
+        "arrow": "Arrow"
+      },
+      "difficulty": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard",
+        "insane": "Insane"
+      },
+      "daily": "Daily challenge",
+      "duelTitle": "Sudoku challenge · {{kind}}",
+      "duelDescription": "A friend solved it in {{time}}. Can you beat that?",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "The same puzzle for everyone, every day."
+    },
+    "pt": {
+      "lang": "pt-BR",
+      "variant": {
+        "classic": "Clássico",
+        "diagonal": "Diagonal",
+        "antiKnight": "Anti-Cavalo",
+        "killer": "Killer",
+        "evenOdd": "Par/Ímpar",
+        "hyper": "Hyper",
+        "consecutive": "Consecutivo",
+        "jigsaw": "Jigsaw",
+        "thermo": "Termômetro",
+        "arrow": "Flecha"
+      },
+      "difficulty": {
+        "easy": "Fácil",
+        "medium": "Médio",
+        "hard": "Difícil",
+        "insane": "Insano"
+      },
+      "daily": "Desafio diário",
+      "duelTitle": "Desafio de sudoku · {{kind}}",
+      "duelDescription": "Um amigo resolveu em {{time}}. Consegue bater?",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "O mesmo quebra-cabeça para todo mundo, todo dia."
+    },
+    "es": {
+      "lang": "es",
+      "variant": {
+        "classic": "Clásico",
+        "diagonal": "Diagonal",
+        "antiKnight": "Anticaballo",
+        "killer": "Killer",
+        "evenOdd": "Par/Impar",
+        "hyper": "Hyper",
+        "consecutive": "Consecutivo",
+        "jigsaw": "Jigsaw",
+        "thermo": "Termómetro",
+        "arrow": "Flecha"
+      },
+      "difficulty": {
+        "easy": "Fácil",
+        "medium": "Medio",
+        "hard": "Difícil",
+        "insane": "Extremo"
+      },
+      "daily": "Desafío diario",
+      "duelTitle": "Desafío de sudoku · {{kind}}",
+      "duelDescription": "Un amigo lo resolvió en {{time}}. ¿Puedes superarlo?",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "El mismo sudoku para todos, cada día."
+    },
+    "fr": {
+      "lang": "fr",
+      "variant": {
+        "classic": "Classique",
+        "diagonal": "Diagonal",
+        "antiKnight": "Anti-cavalier",
+        "killer": "Killer",
+        "evenOdd": "Pair/Impair",
+        "hyper": "Hyper",
+        "consecutive": "Consécutif",
+        "jigsaw": "Jigsaw",
+        "thermo": "Thermo",
+        "arrow": "Flèche"
+      },
+      "difficulty": {
+        "easy": "Facile",
+        "medium": "Moyen",
+        "hard": "Difficile",
+        "insane": "Extrême"
+      },
+      "daily": "Défi quotidien",
+      "duelTitle": "Défi sudoku · {{kind}}",
+      "duelDescription": "Un ami l’a résolu en {{time}}. Saurez-vous faire mieux ?",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "La même grille pour tous, chaque jour."
+    },
+    "de": {
+      "lang": "de",
+      "variant": {
+        "classic": "Klassisch",
+        "diagonal": "Diagonal",
+        "antiKnight": "Anti-Springer",
+        "killer": "Killer",
+        "evenOdd": "Gerade/Ungerade",
+        "hyper": "Hyper",
+        "consecutive": "Konsekutiv",
+        "jigsaw": "Jigsaw",
+        "thermo": "Thermo",
+        "arrow": "Pfeil"
+      },
+      "difficulty": {
+        "easy": "Leicht",
+        "medium": "Mittel",
+        "hard": "Schwer",
+        "insane": "Extrem"
+      },
+      "daily": "Tägliche Herausforderung",
+      "duelTitle": "Sudoku-Duell · {{kind}}",
+      "duelDescription": "Ein Freund hat es in {{time}} gelöst. Schaffst du es schneller?",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "Jeden Tag dasselbe Rätsel für alle."
+    },
+    "pl": {
+      "lang": "pl",
+      "variant": {
+        "classic": "Klasyczne",
+        "diagonal": "Przekątne",
+        "antiKnight": "Antyskoczek",
+        "killer": "Killer",
+        "evenOdd": "Parzyste/Nieparzyste",
+        "hyper": "Hyper",
+        "consecutive": "Kolejne",
+        "jigsaw": "Jigsaw",
+        "thermo": "Termometr",
+        "arrow": "Strzałka"
+      },
+      "difficulty": {
+        "easy": "Łatwy",
+        "medium": "Średni",
+        "hard": "Trudny",
+        "insane": "Szalony"
+      },
+      "daily": "Wyzwanie dnia",
+      "duelTitle": "Wyzwanie sudoku · {{kind}}",
+      "duelDescription": "Znajomy rozwiązał je w {{time}}. Dasz radę szybciej?",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "Codziennie to samo sudoku dla wszystkich."
+    },
+    "ru": {
+      "lang": "ru",
+      "variant": {
+        "classic": "Классика",
+        "diagonal": "Диагональное",
+        "antiKnight": "Антиконь",
+        "killer": "Киллер",
+        "evenOdd": "Чёт/нечет",
+        "hyper": "Гипер",
+        "consecutive": "Последовательное",
+        "jigsaw": "Пазл",
+        "thermo": "Термометр",
+        "arrow": "Стрелка"
+      },
+      "difficulty": {
+        "easy": "Лёгкий",
+        "medium": "Средний",
+        "hard": "Сложный",
+        "insane": "Безумный"
+      },
+      "daily": "Задача дня",
+      "duelTitle": "Вызов в судоку · {{kind}}",
+      "duelDescription": "Друг решил его за {{time}}. Сможете быстрее?",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "Каждый день одна головоломка для всех."
+    },
+    "ja": {
+      "lang": "ja",
+      "variant": {
+        "classic": "クラシック",
+        "diagonal": "対角線",
+        "antiKnight": "アンチナイト",
+        "killer": "キラー",
+        "evenOdd": "偶数・奇数",
+        "hyper": "ハイパー",
+        "consecutive": "連続",
+        "jigsaw": "ジグソー",
+        "thermo": "サーモ",
+        "arrow": "矢印"
+      },
+      "difficulty": {
+        "easy": "かんたん",
+        "medium": "ふつう",
+        "hard": "むずかしい",
+        "insane": "超難問"
+      },
+      "daily": "デイリーチャレンジ",
+      "duelTitle": "数独の挑戦状 · {{kind}}",
+      "duelDescription": "友だちは {{time}} で解きました。もっと速く解けますか？",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "毎日、みんなに同じ問題。"
+    },
+    "ko": {
+      "lang": "ko",
+      "variant": {
+        "classic": "클래식",
+        "diagonal": "대각선",
+        "antiKnight": "안티나이트",
+        "killer": "킬러",
+        "evenOdd": "짝수/홀수",
+        "hyper": "하이퍼",
+        "consecutive": "연속",
+        "jigsaw": "직소",
+        "thermo": "온도계",
+        "arrow": "화살표"
+      },
+      "difficulty": {
+        "easy": "쉬움",
+        "medium": "보통",
+        "hard": "어려움",
+        "insane": "극악"
+      },
+      "daily": "데일리 챌린지",
+      "duelTitle": "스도쿠 도전장 · {{kind}}",
+      "duelDescription": "친구가 {{time}} 만에 풀었어요. 더 빨리 풀 수 있나요?",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "매일, 모두에게 같은 문제."
+    },
+    "zh": {
+      "lang": "zh-Hans",
+      "variant": {
+        "classic": "经典",
+        "diagonal": "对角线",
+        "antiKnight": "无马步",
+        "killer": "杀手",
+        "evenOdd": "奇偶",
+        "hyper": "超级",
+        "consecutive": "连续",
+        "jigsaw": "锯齿",
+        "thermo": "温度计",
+        "arrow": "箭头"
+      },
+      "difficulty": {
+        "easy": "简单",
+        "medium": "中等",
+        "hard": "困难",
+        "insane": "地狱"
+      },
+      "daily": "每日挑战",
+      "duelTitle": "数独挑战 · {{kind}}",
+      "duelDescription": "朋友用 {{time}} 解完了。你能更快吗？",
+      "dailyTitle": "{{title}} · {{date}}",
+      "dailyDescription": "每天，所有人同一道题。"
+    }
+  },
+  "letters": "CDAKEHNJTW",
+  "variants": [
+    "classic",
+    "diagonal",
+    "antiKnight",
+    "killer",
+    "evenOdd",
+    "hyper",
+    "consecutive",
+    "jigsaw",
+    "thermo",
+    "arrow"
+  ],
+  "tiers": [
+    "easy",
+    "medium",
+    "hard",
+    "insane"
+  ],
+  "variantTiers": {
+    "classic": [
+      "easy",
+      "medium",
+      "hard",
+      "insane"
+    ],
+    "diagonal": [
+      "easy",
+      "medium",
+      "hard",
+      "insane"
+    ],
+    "antiKnight": [
+      "easy",
+      "medium",
+      "hard",
+      "insane"
+    ],
+    "evenOdd": [
+      "easy",
+      "medium",
+      "hard",
+      "insane"
+    ],
+    "killer": [
+      "easy",
+      "medium",
+      "hard"
+    ],
+    "hyper": [
+      "easy",
+      "medium",
+      "hard",
+      "insane"
+    ],
+    "consecutive": [
+      "easy",
+      "medium",
+      "hard"
+    ],
+    "jigsaw": [
+      "easy",
+      "medium",
+      "hard"
+    ],
+    "thermo": [
+      "easy",
+      "medium",
+      "hard"
+    ],
+    "arrow": [
+      "easy",
+      "medium",
+      "hard"
+    ]
+  }
+}

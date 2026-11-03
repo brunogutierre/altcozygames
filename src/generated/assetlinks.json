@@ -1,0 +1,26 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.altcozygames.advancedsudoku",
+      "sha256_cert_fingerprints": [
+        "06:67:64:08:61:86:EA:F0:FD:AD:BB:A1:9C:83:74:0C:83:40:34:21:36:75:16:81:BF:CF:DC:C1:90:D0:9C:AA",
+        "3A:F6:C2:37:FD:B5:3A:F5:37:91:5B:32:2C:4B:FA:05:2F:15:EA:16:E6:82:86:C4:25:14:98:B3:BD:42:16:FE",
+        "E7:CC:D5:30:E3:E1:A2:38:68:74:7A:F3:D4:69:A1:6E:EE:F5:AB:22:59:3D:4D:AD:C5:EE:C0:46:C3:5E:81:03",
+        "DF:B7:B7:A1:01:00:3C:FD:AC:50:64:50:95:63:DE:57:27:85:8C:1F:78:7C:9F:39:FE:54:FE:33:EC:E7:10:68"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.altcozygames.advancedsudoku.timetravel",
+      "sha256_cert_fingerprints": [
+        "E7:CC:D5:30:E3:E1:A2:38:68:74:7A:F3:D4:69:A1:6E:EE:F5:AB:22:59:3D:4D:AD:C5:EE:C0:46:C3:5E:81:03",
+        "DF:B7:B7:A1:01:00:3C:FD:AC:50:64:50:95:63:DE:57:27:85:8C:1F:78:7C:9F:39:FE:54:FE:33:EC:E7:10:68"
+      ]
+    }
+  }
+]
