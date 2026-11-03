@@ -21,6 +21,6 @@ Cloudflare deploys each push to `main` (Workers Builds, deploy command `npx wran
 ## The old GitHub Pages site
 
 `index.html` and `advanced-sudoku/` at the root are the first site
-(https://brunogutierre.github.io/altcozygames/), still served by GitHub Pages: the first
-duel links and the privacy policy URL point there. They will redirect to altcozygames.com once
-the domain is live.
+(https://brunogutierre.github.io/altcozygames/), still served by GitHub Pages because the
+first duel links and the first privacy policy URL point there. Each page now sends the
+browser to altcozygames.com (a duel keeps its code).
