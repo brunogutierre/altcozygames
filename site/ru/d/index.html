@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Вызов в судоку · Advanced Sudoku</title>
+<meta name="description" content="Друг решил это судоку и хочет посмотреть, как справитесь вы.">
+<link rel="canonical" href="https://altcozygames.com/ru/d">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Advanced Sudoku">
+<meta property="og:title" content="Вызов в судоку · Advanced Sudoku">
+<meta property="og:description" content="Друг решил это судоку и хочет посмотреть, как справитесь вы.">
+<meta property="og:url" content="https://altcozygames.com/ru/d">
+<meta property="og:image" content="https://altcozygames.com/og/sudoku-ru.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3ecdf" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211d19" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/icon.png">
+<link rel="preload" href="/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=9402c6bf">
+</head>
+<body>
+<main class="wrap">
+<section class="card">
+  <div class="app-id"><img src="/icon.png" alt="" width="52" height="52"><span class="wordmark"><small>Advanced</small> <span>Sudoku</span></span></div>
+  <h1>Вызов в судоку</h1>
+  <p class="intro" id="intro">Друг решил это судоку и хочет посмотреть, как справитесь вы.</p>
+  <div class="challenge" id="challenge" hidden>
+    <p class="kind" id="kind"></p>
+    <p class="label">Время, которое нужно побить</p>
+    <p class="time" id="time"></p>
+  </div>
+  <div class="actions">
+    <a class="button" id="open" hidden>Открыть в приложении</a>
+    <a class="badge" id="install" href="https://play.google.com/store/apps/details?id=com.altcozygames.advancedsudoku&amp;referrer=utm_source%3Dduel%26utm_medium%3Dlink"><img src="/badges/ru.png" alt="Доступно в Google Play" height="64"></a>
+  </div>
+  <p class="code" id="codeBox" hidden>Или введите этот код в Advanced Sudoku, в разделе «Дуэль»:<br><strong id="code"></strong><button class="copy" id="copy" type="button">Скопировать код</button></p>
+  <p class="note">Бесплатно, без рекламы, без аккаунта.</p>
+</section>
+</main>
+<footer class="wrap site-footer"><span>Контакты: <a href="mailto:altcozygames@gmail.com">altcozygames@gmail.com</a></span><a href="/">Создано Alt Cozy Games</a></footer>
+<script>
+const D = {"t":{"title":"Вызов в судоку","intro":"Друг решил это судоку и хочет посмотреть, как справитесь вы.","toBeat":"Время, которое нужно побить","code":"Или введите этот код в Advanced Sudoku, в разделе «Дуэль»:","copy":"Скопировать код","copied":"Скопировано","invalid":"Эта ссылка на вызов неполная. Попросите друга отправить её ещё раз.","ogTitle":"Вызов в судоку · {{kind}}","ogDescription":"Друг решил его за {{time}}. Сможете быстрее?","open":"Открыть в приложении"},"names":{"variant":{"classic":"Классика","diagonal":"Диагональное","antiKnight":"Антиконь","killer":"Киллер","evenOdd":"Чёт/нечет","hyper":"Гипер","consecutive":"Последовательное","jigsaw":"Пазл","thermo":"Термометр","arrow":"Стрелка"},"difficulty":{"easy":"Лёгкий","medium":"Средний","hard":"Сложный","insane":"Безумный"}},"letters":"CDAKEHNJTW","variants":["classic","diagonal","antiKnight","killer","evenOdd","hyper","consecutive","jigsaw","thermo","arrow"],"tiers":["easy","medium","hard","insane"],"play":"https://play.google.com/store/apps/details?id=com.altcozygames.advancedsudoku","pkg":"com.altcozygames.advancedsudoku"};
+const $ = (id) => document.getElementById(id);
+const fromPath = decodeURIComponent(location.pathname.split('/d/')[1] || '').replace(/\/+$/, '');
+const raw = (fromPath || new URLSearchParams(location.search).get('c') || '').trim();
+const m = new RegExp('^([' + D.letters + '])([1-4])-([a-z0-9]{1,16})-([a-z0-9]{1,6})$', 'i').exec(raw);
+if (m) {
+  const code = m[1].toUpperCase() + m[2] + '-' + m[3].toLowerCase() + '-' + m[4].toLowerCase();
+  const seconds = parseInt(m[4], 36);
+  $('kind').textContent = D.names.variant[D.variants[D.letters.indexOf(m[1].toUpperCase())]] + ' · ' + D.names.difficulty[D.tiers[Number(m[2]) - 1]];
+  $('time').textContent = Math.floor(seconds / 60) + ':' + String(seconds % 60).padStart(2, '0');
+  $('challenge').hidden = false;
+  $('code').textContent = code;
+  $('codeBox').hidden = false;
+  $('copy').addEventListener('click', () => {
+    navigator.clipboard?.writeText(code).then(() => ($('copy').textContent = D.t.copied), () => undefined);
+  });
+  // The Play link carries the code: the app opens this duel on its first launch.
+  const play = D.play + '&referrer=' + encodeURIComponent('utm_source=duel&utm_medium=link&duel=' + code);
+  $('install').href = play;
+  if (/Android/i.test(navigator.userAgent)) {
+    const open = $('open');
+    open.href = 'intent://duel/' + code + '#Intent;scheme=advsudoku;package=' + D.pkg + ';S.browser_fallback_url=' + encodeURIComponent(play) + ';end';
+    open.hidden = false;
+  }
+} else {
+  $('intro').textContent = D.t.invalid;
+}
+</script>
+</body>
+</html>

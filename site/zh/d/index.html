@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数独挑战 · Advanced Sudoku</title>
+<meta name="description" content="朋友解完了这道数独，想看看你的表现。">
+<link rel="canonical" href="https://altcozygames.com/zh/d">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Advanced Sudoku">
+<meta property="og:title" content="数独挑战 · Advanced Sudoku">
+<meta property="og:description" content="朋友解完了这道数独，想看看你的表现。">
+<meta property="og:url" content="https://altcozygames.com/zh/d">
+<meta property="og:image" content="https://altcozygames.com/og/sudoku-zh.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#f3ecdf" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211d19" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/icon.png">
+<link rel="preload" href="/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=9402c6bf">
+</head>
+<body>
+<main class="wrap">
+<section class="card">
+  <div class="app-id"><img src="/icon.png" alt="" width="52" height="52"><span class="wordmark"><small>Advanced</small> <span>Sudoku</span></span></div>
+  <h1>数独挑战</h1>
+  <p class="intro" id="intro">朋友解完了这道数独，想看看你的表现。</p>
+  <div class="challenge" id="challenge" hidden>
+    <p class="kind" id="kind"></p>
+    <p class="label">要打破的时间</p>
+    <p class="time" id="time"></p>
+  </div>
+  <div class="actions">
+    <a class="button" id="open" hidden>在应用中打开</a>
+    <a class="badge" id="install" href="https://play.google.com/store/apps/details?id=com.altcozygames.advancedsudoku&amp;referrer=utm_source%3Dduel%26utm_medium%3Dlink"><img src="/badges/zh-Hans.png" alt="下载应用，请到 Google Play" height="64"></a>
+  </div>
+  <p class="code" id="codeBox" hidden>或在 Advanced Sudoku 的“对战”中输入此代码：<br><strong id="code"></strong><button class="copy" id="copy" type="button">复制代码</button></p>
+  <p class="note">免费、无广告、无需账号。</p>
+</section>
+</main>
+<footer class="wrap site-footer"><span>联系我们: <a href="mailto:altcozygames@gmail.com">altcozygames@gmail.com</a></span><a href="/">由 Alt Cozy Games 制作</a></footer>
+<script>
+const D = {"t":{"title":"数独挑战","intro":"朋友解完了这道数独，想看看你的表现。","toBeat":"要打破的时间","code":"或在 Advanced Sudoku 的“对战”中输入此代码：","copy":"复制代码","copied":"已复制","invalid":"这个挑战链接不完整。请让朋友重新发送。","ogTitle":"数独挑战 · {{kind}}","ogDescription":"朋友用 {{time}} 解完了。你能更快吗？","open":"在应用中打开"},"names":{"variant":{"classic":"经典","diagonal":"对角线","antiKnight":"无马步","killer":"杀手","evenOdd":"奇偶","hyper":"超级","consecutive":"连续","jigsaw":"锯齿","thermo":"温度计","arrow":"箭头"},"difficulty":{"easy":"简单","medium":"中等","hard":"困难","insane":"地狱"}},"letters":"CDAKEHNJTW","variants":["classic","diagonal","antiKnight","killer","evenOdd","hyper","consecutive","jigsaw","thermo","arrow"],"tiers":["easy","medium","hard","insane"],"play":"https://play.google.com/store/apps/details?id=com.altcozygames.advancedsudoku","pkg":"com.altcozygames.advancedsudoku"};
+const $ = (id) => document.getElementById(id);
+const fromPath = decodeURIComponent(location.pathname.split('/d/')[1] || '').replace(/\/+$/, '');
+const raw = (fromPath || new URLSearchParams(location.search).get('c') || '').trim();
+const m = new RegExp('^([' + D.letters + '])([1-4])-([a-z0-9]{1,16})-([a-z0-9]{1,6})$', 'i').exec(raw);
+if (m) {
+  const code = m[1].toUpperCase() + m[2] + '-' + m[3].toLowerCase() + '-' + m[4].toLowerCase();
+  const seconds = parseInt(m[4], 36);
+  $('kind').textContent = D.names.variant[D.variants[D.letters.indexOf(m[1].toUpperCase())]] + ' · ' + D.names.difficulty[D.tiers[Number(m[2]) - 1]];
+  $('time').textContent = Math.floor(seconds / 60) + ':' + String(seconds % 60).padStart(2, '0');
+  $('challenge').hidden = false;
+  $('code').textContent = code;
+  $('codeBox').hidden = false;
+  $('copy').addEventListener('click', () => {
+    navigator.clipboard?.writeText(code).then(() => ($('copy').textContent = D.t.copied), () => undefined);
+  });
+  // The Play link carries the code: the app opens this duel on its first launch.
+  const play = D.play + '&referrer=' + encodeURIComponent('utm_source=duel&utm_medium=link&duel=' + code);
+  $('install').href = play;
+  if (/Android/i.test(navigator.userAgent)) {
+    const open = $('open');
+    open.href = 'intent://duel/' + code + '#Intent;scheme=advsudoku;package=' + D.pkg + ';S.browser_fallback_url=' + encodeURIComponent(play) + ';end';
+    open.hidden = false;
+  }
+} else {
+  $('intro').textContent = D.t.invalid;
+}
+</script>
+</body>
+</html>
